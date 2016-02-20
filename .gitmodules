@@ -4,3 +4,6 @@
 [submodule "runtime/python"]
 	path = runtime/python
 	url = https://github.com/kaitai-io/kaitai_struct_python_runtime.git
+[submodule "runtime/ruby"]
+	path = runtime/ruby
+	url = https://github.com/kaitai-io/kaitai_struct_ruby_runtime.git
