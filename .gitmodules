@@ -7,3 +7,6 @@
 [submodule "runtime/ruby"]
 	path = runtime/ruby
 	url = https://github.com/kaitai-io/kaitai_struct_ruby_runtime.git
+[submodule "tests"]
+	path = tests
+	url = https://github.com/kaitai-io/kaitai_struct_tests.git
