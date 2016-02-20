@@ -1,0 +1,6 @@
+[submodule "runtime/java"]
+	path = runtime/java
+	url = https://github.com/kaitai-io/kaitai_struct_java_runtime.git
+[submodule "runtime/python"]
+	path = runtime/python
+	url = https://github.com/kaitai-io/kaitai_struct_python_runtime.git
