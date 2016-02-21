@@ -128,7 +128,7 @@ Note the `--recursive` option.
 Alternatively, one can check out individual sub-projects that
 consitute Kaitai Struct suite. They are:
 
-* [kaitai_struct_compiler](https://github.com/kaitai-io/kaitai_struct_tests) - compiler that translates `.ksy` → `.java` / `.py` / `.rb`
+* [kaitai_struct_compiler](https://github.com/kaitai-io/kaitai_struct_compiler) - compiler that translates `.ksy` → `.java` / `.py` / `.rb`
 * [kaitai_struct_tests](https://github.com/kaitai-io/kaitai_struct_tests) - tests & specs to ensure that compiler work as planned
 * Runtime libraries 
   * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) - for Java
