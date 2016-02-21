@@ -39,8 +39,8 @@ meta:
 seq:
   - id: header
     type: header
-  - id: logical_screen_descriptor
-    type: logical_screen_descriptor
+  - id: logical_screen
+    type: logical_screen
 types:
   header:
     seq:
