@@ -10,3 +10,6 @@
 [submodule "tests"]
 	path = tests
 	url = https://github.com/kaitai-io/kaitai_struct_tests.git
+[submodule "compiler"]
+	path = compiler
+	url = https://github.com/kaitai-io/kaitai_struct_compiler.git
