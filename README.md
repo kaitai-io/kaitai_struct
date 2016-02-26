@@ -20,9 +20,9 @@ hard-to-debug code that reads binary data structures from file /
 network stream and somehow represents them in memory for easier
 access?
 
-Kaitai Struct tries to make this job easier - you only have to
+Kaitai Struct tries to make this job easier — you only have to
 describe binary format once and then everybody can use it from their
-programming languages - cross-language, cross-platform.
+programming languages — cross-language, cross-platform.
 
 Kaitai Struct includes a growing collection of format descriptions
 
@@ -108,7 +108,7 @@ insights.
 
 ## Supported languages
 
-Official Kaitai Struct compiler now supports compiling `.ksy` into
+Official Kaitai Struct [compiler] now supports compiling `.ksy` into
 source modules for the following languages:
 
 * Java
@@ -128,19 +128,19 @@ Note the `--recursive` option.
 Alternatively, one can check out individual sub-projects that
 consitute Kaitai Struct suite. They are:
 
-* [kaitai_struct_compiler](https://github.com/kaitai-io/kaitai_struct_compiler) - compiler that translates `.ksy` → `.java` / `.py` / `.rb`
-* [kaitai_struct_tests](https://github.com/kaitai-io/kaitai_struct_tests) - tests & specs to ensure that compiler work as planned
+* [kaitai_struct_compiler](https://github.com/kaitai-io/kaitai_struct_compiler) — compiler that translates `.ksy` → `.java` / `.py` / `.rb`
+* [kaitai_struct_tests](https://github.com/kaitai-io/kaitai_struct_tests) — tests & specs to ensure that compiler work as planned
 * Runtime libraries 
-  * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) - for Java
-  * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) - for Python
-  * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) - for Ruby
+  * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) — for Java
+  * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) — for Python
+  * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) — for Ruby
 
 ## Using KS in your project
 
 Typically, using formats described in KS in your project, involves the
 following steps:
 
-* Describe the format - i.e. create a `.ksy` file 
+* Describe the format — i.e. create a `.ksy` file
 * Compile `.ksy` file into `.java` / `.py` / `.rb` file and add it to
   your project
 * Add KS runtime library for your particular language into your
@@ -170,3 +170,5 @@ can be examined by naked eye, debugged if needed, etc.
 ### Similar projects
 
 TODO
+
+[compiler]: https://github.com/kaitai-io/kaitai_struct_compiler
