@@ -13,3 +13,6 @@
 [submodule "compiler"]
 	path = compiler
 	url = https://github.com/kaitai-io/kaitai_struct_compiler.git
+[submodule "runtime/javascript"]
+	path = runtime/javascript
+	url = https://github.com/kaitai-io/kaitai_struct_javascript_runtime.git
