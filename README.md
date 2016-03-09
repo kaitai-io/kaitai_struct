@@ -74,16 +74,24 @@ blocks: first comes `header` and then comes `logical_screen`:
   * `flags`, `bg_color_index` and `pixel_aspect_ratio` take 1-byte
     unsigned int each
 
-This `.ksy` file can be compiled it into `Gif.java` / `gif.py` /
-`gif.rb` and then instantly one can load .gif file and access, for
-example, it's width and height.
+This `.ksy` file can be compiled it into `Gif.java` / `Gif.js` /
+`gif.py` / `gif.rb` and then instantly one can load .gif file and
+access, for example, it's width and height.
 
 ### In Java
 
 ```java
 Gif g = Gif.fromFile("path/to/some.gif");
-System.out.println("width = " + g.logicalScreen.imageWidth());
-System.out.println("height = " + g.logicalScreen.imageHeight());
+System.out.println("width = " + g.logicalScreen().imageWidth());
+System.out.println("height = " + g.logicalScreen().imageHeight());
+```
+
+### In JavaScript
+
+```javascript
+var g = new Gif(someArrayBuffer);
+console.log("width = " + g.logicalScreen().imageWidth());
+console.log("height = " + g.logicalScreen().imageHeight());
 ```
 
 ### In Python
@@ -112,6 +120,7 @@ Official Kaitai Struct [compiler] now supports compiling `.ksy` into
 source modules for the following languages:
 
 * Java
+* JavaScript
 * Python
 * Ruby
 
@@ -132,6 +141,7 @@ consitute Kaitai Struct suite. They are:
 * [kaitai_struct_tests](https://github.com/kaitai-io/kaitai_struct_tests) — tests & specs to ensure that compiler work as planned
 * Runtime libraries 
   * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) — for Java
+  * [kaitai_struct_javascript_runtime](https://github.com/kaitai-io/kaitai_struct_javascript_runtime) — for JavaScript
   * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) — for Python
   * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) — for Ruby
 
@@ -141,8 +151,8 @@ Typically, using formats described in KS in your project, involves the
 following steps:
 
 * Describe the format — i.e. create a `.ksy` file
-* Compile `.ksy` file into `.java` / `.py` / `.rb` file and add it to
-  your project
+* Compile `.ksy` file into target language source file and include
+  that file into your project
 * Add KS runtime library for your particular language into your
   project (don't worry, it's small and it's there mostly to ensure
   readability of generated code)
@@ -152,6 +162,10 @@ following steps:
 Check out the tutorial and documentation for more information.
 
 ## Licensing
+
+* [Compiler] — GPLv3+
+* Runtime libraries — Apache v2 (=> you can include generated code
+  even into proprietary applications)
 
 ## FAQ
 
