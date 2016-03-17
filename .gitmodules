@@ -16,3 +16,6 @@
 [submodule "runtime/javascript"]
 	path = runtime/javascript
 	url = https://github.com/kaitai-io/kaitai_struct_javascript_runtime.git
+[submodule "runtime/cpp_stl"]
+	path = runtime/cpp_stl
+	url = https://github.com/kaitai-io/kaitai_struct_cpp_stl_runtime.git
