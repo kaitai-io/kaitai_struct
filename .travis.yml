@@ -1,3 +1,5 @@
+# version: 2
+
 language: scala
 scala:
   - 2.11.7
