@@ -1,0 +1,16 @@
+language: scala
+scala:
+  - 2.11.7
+
+cache:
+  - apt
+
+before_script: cd tests
+
+script:
+  - ./compile-all
+  - ./run-cpp_stl
+  - ./run-java
+  - ./run-javascript
+  - ./run-python
+  - ./run-ruby
