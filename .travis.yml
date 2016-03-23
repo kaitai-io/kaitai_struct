@@ -4,17 +4,15 @@ language: scala
 scala:
   - 2.11.7
 
-addons:
-  apt:
-    packages:
-    - python-enum34
-    - nodejs
-
 cache:
   - apt
 
+before_install: cd tests
+
 install:
+  - pip install enum34
   - gem install rspec
+  - npm install mocha iconv-lite
 
 before_script: cd tests
 
