@@ -4,8 +4,17 @@ language: scala
 scala:
   - 2.11.7
 
+addons:
+  apt:
+    packages:
+    - python-enum34
+    - nodejs
+
 cache:
   - apt
+
+install:
+  - gem install rspec
 
 before_script: cd tests
 
