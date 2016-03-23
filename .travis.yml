@@ -10,7 +10,7 @@ cache:
 before_install: cd tests
 
 install:
-  - pip install enum34
+  - pip install --user enum34
   - gem install rspec
   - npm install mocha iconv-lite
 
