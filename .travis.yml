@@ -22,6 +22,7 @@ install:
   - gem install rspec
 
   # JavaScript
+  - nvm install 5
   - nvm use 5
   - npm install mocha iconv-lite
 
