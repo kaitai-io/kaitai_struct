@@ -15,11 +15,17 @@ addons:
 before_install: cd tests
 
 install:
+  # Python
   - pip install --user enum34
+
+  # Ruby
   - gem install rspec
+
+  # JavaScript
+  - nvm use 5
   - npm install mocha iconv-lite
 
-  # Poor man's maven implementation in 3 lines :)
+  # Java: poor man's maven implementation in 3 lines :)
   - mkdir -p "$HOME/.m2/repository/org/testng/testng/6.9.10" "$HOME/.m2/repository/com/beust/jcommander/1.48"
   - wget -O "$HOME/.m2/repository/org/testng/testng/6.9.10/testng-6.9.10.jar" http://jcenter.bintray.com/org/testng/testng/6.9.10/testng-6.9.10.jar
   - wget -O "$HOME/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar" http://jcenter.bintray.com/com/beust/jcommander/1.48/jcommander-1.48.jar
