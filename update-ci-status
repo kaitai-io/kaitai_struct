@@ -32,7 +32,7 @@ echo OK
 
 echo -n 'Checking if key looks valid... '
 key_head=$(head -n1 $HOME/bot_id)
-if [ "$key_head" != '-----BEGIN OPENSSH PRIVATE KEY-----' ]; then
+if [ "$key_head" != '-----BEGIN RSA PRIVATE KEY-----' ]; then
 	echo 'Nope, key seems to be invalid'
 	exit 1
 fi
