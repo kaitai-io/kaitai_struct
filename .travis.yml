@@ -10,7 +10,7 @@ cache:
 addons:
   apt:
     packages:
-      - libboost-test-dev    
+      - libboost-test-dev
 
 before_install: cd tests
 
@@ -33,8 +33,5 @@ install:
 
 script:
   - ./compile-all
-  - ./run-cpp_stl
-  - ./run-java
-  - ./run-javascript
-  - ./run-python
-  - ./run-ruby
+  - ./run-all
+  - ../update-ci-status
