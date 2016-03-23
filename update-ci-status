@@ -45,7 +45,7 @@ sha1sum $HOME/bot_id
 echo -n 'Setting up ssh wrapper... '
 cat >$HOME/git-ssh <<__EOF__
 #!/bin/sh -ef
-ssh -i $HOME/bot_id $@
+ssh -i "$HOME/bot_id" "\$@"
 __EOF__
 chmod a+x $HOME/git-ssh
 export GIT_SSH="$HOME/git-ssh"
@@ -69,6 +69,6 @@ GIT_AUTHOR_NAME='Kaitai Bot' \
 echo 'Pushing...'
 git push
 
-echo -n 'Cleaning up the key... '
-rm $HOME/bot_id
+echo -n 'Cleaning up the key and wrapper... '
+rm "$HOME/bot_id" "$HOME/git-ssh"
 echo OK
