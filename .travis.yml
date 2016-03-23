@@ -7,6 +7,11 @@ scala:
 cache:
   - apt
 
+addons:
+  apt:
+    packages:
+      - libboost-test-dev    
+
 before_install: cd tests
 
 install:
