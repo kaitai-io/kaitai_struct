@@ -36,9 +36,20 @@ if [ "$key_head" != '-----BEGIN OPENSSH PRIVATE KEY-----' ]; then
 	echo 'Nope, key seems to be invalid'
 	exit 1
 fi
-export GIT_SSH_COMMAND="ssh -i $HOME/bot_id"
 echo -n 'OK, '
 sha1sum $HOME/bot_id
+
+# Alas, it seems that Travis CI uses ancient git that doesn't support this
+#export GIT_SSH_COMMAND="ssh -i $HOME/bot_id"
+
+echo -n 'Setting up ssh wrapper... '
+cat >$HOME/git-ssh <<__EOF__
+#!/bin/sh -ef
+ssh -i $HOME/bot_id $@
+__EOF__
+chmod a+x $HOME/git-ssh
+export GIT_SSH="$HOME/git-ssh"
+echo 'OK'
 
 echo 'Cloning website repo...'
 git clone git@github.com:kaitai-io/kaitai-io.github.io.git
