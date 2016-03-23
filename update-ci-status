@@ -63,7 +63,7 @@ GIT_AUTHOR_NAME='Kaitai Bot' \
 	GIT_AUTHOR_EMAIL='kaitai-bot@kaitai.io' \
 	GIT_COMMITTER_NAME='Kaitai Bot' \
 	GIT_COMMITTER_EMAIL='kaitai-bot@kaitai.io' \
-		git ci -m "Updated with build results on $(date -Iseconds --utc)" \
+		git commit -m "Updated with build results on $(date -Iseconds --utc)" \
 			ci/index.html
 
 echo 'Pushing...'
