@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -ef
 
 # update-ci-status: updates CI status on protected site hosted at GitHub
 # pages.
@@ -18,9 +18,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+if [ -z "$BOT_SSH_KEY" ]; then
+	echo "BOT_SSH_KEY is not set!"
+	exit 1
+fi
+
 echo -n 'Setting up bot key... '
 echo "$BOT_SSH_KEY" | base64 -d >$HOME/bot_id
 chmod 600 $HOME/bot_id
+echo OK
+
+echo -n 'Checking if key looks valid... '
+key_head=$(head -n1 $HOME/bot_id)
+if [ "$key_head" != '-----BEGIN OPENSSH PRIVATE KEY-----' ]; then
+	echo 'Nope, key seems to be invalid'
+	exit 1
+fi
+echo OK
+
 export GIT_SSH_COMMAND="ssh -i $HOME/bot_id"
 echo OK
 
