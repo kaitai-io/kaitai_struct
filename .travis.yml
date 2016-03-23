@@ -14,8 +14,6 @@ install:
   - gem install rspec
   - npm install mocha iconv-lite
 
-before_script: cd tests
-
 script:
   - ./compile-all
   - ./run-cpp_stl
