@@ -24,7 +24,10 @@ Kaitai Struct tries to make this job easier — you only have to
 describe binary format once and then everybody can use it from their
 programming languages — cross-language, cross-platform.
 
-Kaitai Struct includes a growing collection of format descriptions
+Kaitai Struct includes a growing collection of format descriptions,
+available in
+[formats](https://github.com/kaitai-io/kaitai_struct_formats)
+submodule repository.
 
 ## Can you give me a quick example?
 
@@ -144,6 +147,9 @@ consitute Kaitai Struct suite. They are:
   * [kaitai_struct_javascript_runtime](https://github.com/kaitai-io/kaitai_struct_javascript_runtime) — for JavaScript
   * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) — for Python
   * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) — for Ruby
+* [kaitai_struct_formats](https://github.com/kaitai-io/kaitai_struct_formats)
+  — library of widely used formats and binary structures described as
+  `.ksy` files
 
 ## Using KS in your project
 
