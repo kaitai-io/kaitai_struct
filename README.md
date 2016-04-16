@@ -173,22 +173,4 @@ Check out the tutorial and documentation for more information.
 * Runtime libraries — Apache v2 (=> you can include generated code
   even into proprietary applications)
 
-## FAQ
-
-### Is it fast?
-
-Yes, pretty much. Kaitai Struct is not a runtime interpreter, but a
-compiler - thus it imposes no additional performance penalty. Code
-that it generates is about as fast as one can write in a particular
-language to parse a certain data format.
-
-### Is it readable?
-
-Yes, Kaitai Struct compiler generates very human-readable files, which
-can be examined by naked eye, debugged if needed, etc.
-
-### Similar projects
-
-TODO
-
 [compiler]: https://github.com/kaitai-io/kaitai_struct_compiler
