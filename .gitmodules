@@ -22,3 +22,6 @@
 [submodule "formats"]
 	path = formats
 	url = https://github.com/kaitai-io/kaitai_struct_formats.git
+[submodule "visualizer"]
+	path = visualizer
+	url = https://github.com/kaitai-io/kaitai_struct_visualizer.git
