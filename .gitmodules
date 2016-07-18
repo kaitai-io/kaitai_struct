@@ -19,6 +19,9 @@
 [submodule "runtime/cpp_stl"]
 	path = runtime/cpp_stl
 	url = https://github.com/kaitai-io/kaitai_struct_cpp_stl_runtime.git
+[submodule "runtime/csharp"]
+	path = runtime/csharp
+	url = https://github.com/kaitai-io/kaitai_struct_csharp_runtime
 [submodule "formats"]
 	path = formats
 	url = https://github.com/kaitai-io/kaitai_struct_formats.git
