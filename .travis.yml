@@ -1,5 +1,10 @@
 # version: 5
 
+# Use Ubuntu Trusty 14.04 image; unfortunately, it requires "sudo: true"
+# and thus is very slow :(
+dist: trusty
+sudo: true
+
 language: scala
 scala:
   - 2.11.7
