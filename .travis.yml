@@ -20,6 +20,8 @@ addons:
       - libboost-test-dev
       - ca-certificates-mono
       - mono-xbuild
+      - mono-mcs
+      - mono-devel
       - nuget
 
 before_install:
