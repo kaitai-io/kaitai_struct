@@ -17,6 +17,7 @@ addons:
     packages:
       - libboost-test-dev
       - mono-xbuild
+      - nuget
 
 before_install: cd tests
 
@@ -40,8 +41,7 @@ install:
 
   # C#
   - mono --version
-  - wget -O "$HOME/nuget.exe" https://dist.nuget.org/win-x86-commandline/v3.2.0/nuget.exe
-  - mono "$HOME/nuget.exe" restore spec/csharp/kaitai_struct_csharp_tests.sln
+  - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
 
 script:
   - ./compile-all
