@@ -12,7 +12,6 @@ addons:
     packages:
       - libboost-test-dev
       - mono-xbuild
-      - nuget
 
 before_install: cd tests
 
@@ -35,7 +34,8 @@ install:
   - wget -O "$HOME/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar" http://jcenter.bintray.com/com/beust/jcommander/1.48/jcommander-1.48.jar
 
   # C#
-  - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
+  - wget -O "$HOME/nuget.exe" https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+  - mono "$HOME/nuget.exe" restore spec/csharp/kaitai_struct_csharp_tests.sln
 
 script:
   - ./compile-all
