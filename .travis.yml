@@ -14,16 +14,15 @@ cache:
 
 addons:
   apt:
+    sources:
+      - mono
     packages:
       - libboost-test-dev
+      - ca-certificates-mono
+      - mono-xbuild
+      - nuget
 
 before_install:
-  # Add extra mono repository: we need mono 4, and, unfortunately, trusty package is mono 3.2.8+dfsg-4ubuntu1.1
-  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-  - echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-  - sudo apt-get update -q
-  - sudo apt-get install ca-certificates-mono mono-xbuild nuget
-
   - cd tests
 
 install:
