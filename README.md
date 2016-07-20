@@ -140,13 +140,16 @@ Note the `--recursive` option.
 Alternatively, one can check out individual sub-projects that
 consitute Kaitai Struct suite. They are:
 
-* [kaitai_struct_compiler](https://github.com/kaitai-io/kaitai_struct_compiler) — compiler that translates `.ksy` → `.java` / `.py` / `.rb`
+* [kaitai_struct_compiler](https://github.com/kaitai-io/kaitai_struct_compiler) — compiler that translates `.ksy` into a parser source code written in a target programming language
 * [kaitai_struct_tests](https://github.com/kaitai-io/kaitai_struct_tests) — tests & specs to ensure that compiler work as planned
-* Runtime libraries 
+* Runtime libraries
+  * [kaitai_struct_cpp_stl_runtime](https://github.com/kaitai-io/kaitai_struct_cpp_stl_runtime) — for C++/STL
+  * [kaitai_struct_csharp_runtime](https://github.com/kaitai-io/kaitai_struct_csharp_runtime) — for C#
   * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) — for Java
   * [kaitai_struct_javascript_runtime](https://github.com/kaitai-io/kaitai_struct_javascript_runtime) — for JavaScript
   * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) — for Python
   * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) — for Ruby
+  * [kaitai_struct_swift_runtime](https://github.com/kaitai-io/kaitai_struct_swift_runtime) — for Swift
 * [kaitai_struct_formats](https://github.com/kaitai-io/kaitai_struct_formats)
   — library of widely used formats and binary structures described as
   `.ksy` files
