@@ -50,7 +50,8 @@ install:
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
 
 script:
+  - ./build-compiler
   - ./translator-tests
-  - ./compile-all
+  - ./build-formats
   - ./run-all
   - ../update-ci-status
