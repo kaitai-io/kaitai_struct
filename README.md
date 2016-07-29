@@ -81,7 +81,7 @@ This `.ksy` file can be compiled it into `Gif.cs` / `Gif.java` /
 `Gif.js` / `gif.py` / `gif.rb` and then instantly one can load .gif
 file and access, for example, it's width and height.
 
-### In C#
+### In C\#
 
 ```cs
 Gif g = Gif.FromFile("path/to/some.gif");
