@@ -34,10 +34,10 @@ submodule repository.
 Sure. Consider this simple `.ksy` format description file that
 describes header of a GIF file (a popular web image format):
 
-```
+```yaml
 meta:
   id: gif
-  file_extension: gif
+  file-extension: gif
   endian: le
 seq:
   - id: header
@@ -77,9 +77,17 @@ blocks: first comes `header` and then comes `logical_screen`:
   * `flags`, `bg_color_index` and `pixel_aspect_ratio` take 1-byte
     unsigned int each
 
-This `.ksy` file can be compiled it into `Gif.java` / `Gif.js` /
-`gif.py` / `gif.rb` and then instantly one can load .gif file and
-access, for example, it's width and height.
+This `.ksy` file can be compiled it into `Gif.cs` / `Gif.java` /
+`Gif.js` / `gif.py` / `gif.rb` and then instantly one can load .gif
+file and access, for example, it's width and height.
+
+### In C#
+
+```cs
+Gif g = Gif.FromFile("path/to/some.gif");
+Console.WriteLine("width = " + g.LogicalScreen.ImageWidth);
+Console.WriteLine("height = " + g.LogicalScreen.ImageHeight);
+```
 
 ### In Java
 
@@ -114,14 +122,15 @@ puts "height = #{g.logical_screen.image_height}"
 ```
 
 Of course, this example shows only very limited subset of what Kaitai
-Struct can do. Please refer to tutorials and documentation for more
-insights.
+Struct can do. Please refer to the tutorials and documentation for
+more insights.
 
 ## Supported languages
 
 Official Kaitai Struct [compiler] now supports compiling `.ksy` into
 source modules for the following languages:
 
+* C#
 * Java
 * JavaScript
 * Python
