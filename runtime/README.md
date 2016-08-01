@@ -16,13 +16,13 @@ maintain exactly this order of declarations and group headers.
 
 * `read_s1`
 
-#### Big endian
+#### Big-endian
 
 * `read_s2be`
 * `read_s4be`
 * `read_s8be`
 
-#### Little endian
+#### Little-endian
 
 * `read_s2le`
 * `read_s4le`
@@ -32,13 +32,13 @@ maintain exactly this order of declarations and group headers.
 
 * `read_u1`
 
-#### Big endian
+#### Big-endian
 
 * `read_u2be`
 * `read_u4be`
 * `read_u8be`
 
-#### Little endian
+#### Little-endian
 
 * `read_u2le`
 * `read_u4le`
@@ -46,12 +46,12 @@ maintain exactly this order of declarations and group headers.
 
 ## Floating point numbers
 
-### Big endian
+### Big-endian
 
 * `read_f4be`
 * `read_f8be`
 
-### Little endian
+### Little-endian
 
 * `read_f4le`
 * `read_f8le`
