@@ -9,6 +9,7 @@ maintain exactly this order of declarations and group headers.
 * `eof?`
 * `seek(n)`
 * `pos`
+* `size`
 
 ## Integer numbers
 
