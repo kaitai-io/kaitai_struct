@@ -182,7 +182,8 @@ Check out the tutorial and documentation for more information.
 ## Licensing
 
 * [Compiler] — GPLv3+
-* Runtime libraries — Apache v2 (=> you can include generated code
-  even into proprietary applications)
+* Runtime libraries — MIT or Apache v2 (=> you can include generated
+  code even into proprietary applications) — see individual libraries
+  for details
 
 [compiler]: https://github.com/kaitai-io/kaitai_struct_compiler
