@@ -28,3 +28,6 @@
 [submodule "visualizer"]
 	path = visualizer
 	url = https://github.com/kaitai-io/kaitai_struct_visualizer.git
+[submodule "runtime/php"]
+	path = runtime/php
+	url = https://github.com/kaitai-io/kaitai_struct_php_runtime
