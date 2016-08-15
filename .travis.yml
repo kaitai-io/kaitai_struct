@@ -23,6 +23,7 @@ addons:
       - mono-mcs
       - mono-devel
       - nuget
+      - phpunit
 
 before_install:
   - cd tests
