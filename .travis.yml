@@ -9,9 +9,6 @@ language: scala
 scala:
   - 2.11.7
 
-php:
-  - 7.0
-
 cache:
   - apt
 
@@ -19,6 +16,7 @@ addons:
   apt:
     sources:
       - mono
+      - sourceline: ppa:ondrej/php
     packages:
       - libboost-test-dev
       - ca-certificates-mono
@@ -26,6 +24,7 @@ addons:
       - mono-mcs
       - mono-devel
       - nuget
+      - php7.0-cli
 
 before_install:
   - cd tests
@@ -53,6 +52,7 @@ install:
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
 
   # PHP: newer PHPUnit, as the one in the repos is very old
+  - php --version
   - wget https://phar.phpunit.de/phpunit.phar
   - chmod +x phpunit.phar
   - sudo mv phpunit.phar /usr/local/bin/phpunit
