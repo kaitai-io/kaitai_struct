@@ -23,7 +23,6 @@ addons:
       - mono-mcs
       - mono-devel
       - nuget
-      - phpunit
 
 before_install:
   - cd tests
@@ -49,6 +48,12 @@ install:
   # C#
   - mono --version
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
+
+  # PHP: newer PHPUnit, as the one in the repos is very old
+  - wget https://phar.phpunit.de/phpunit.phar
+  - chmod +x phpunit.phar
+  - sudo mv phpunit.phar /usr/local/bin/phpunit
+  - phpunit --version
 
 script:
   - ./build-compiler
