@@ -9,6 +9,9 @@ language: scala
 scala:
   - 2.11.7
 
+php:
+  - 7.0
+
 cache:
   - apt
 
