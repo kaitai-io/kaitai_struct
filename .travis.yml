@@ -25,6 +25,7 @@ addons:
       - mono-devel
       - nuget
       - php7.0-cli
+      - php7.0-dom # required by PHPUnit
 
 before_install:
   - cd tests
