@@ -30,6 +30,7 @@ addons:
       # requirements of TAP::Harness::JUnit
       - libtest-deep-perl # Test::Deep
       - libxml-simple-perl # XML::Simple
+      - libmodule-build-perl # Module::Build
 
 before_install:
   - cd tests
