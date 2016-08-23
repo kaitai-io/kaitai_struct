@@ -31,3 +31,6 @@
 [submodule "runtime/php"]
 	path = runtime/php
 	url = https://github.com/kaitai-io/kaitai_struct_php_runtime
+[submodule "runtime/perl"]
+	path = runtime/perl
+	url = https://github.com/kaitai-io/kaitai_struct_perl_runtime
