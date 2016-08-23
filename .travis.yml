@@ -26,6 +26,7 @@ addons:
       - nuget
       - php7.0-cli
       - php7.0-dom # required by PHPUnit
+      - libtest-class-perl # Test::Class for perl
 
 before_install:
   - cd tests
@@ -58,6 +59,9 @@ install:
   - chmod +x phpunit.phar
   - sudo mv phpunit.phar /usr/local/bin/phpunit
   - phpunit --version
+
+  # Perl
+  - cpan install TAP::Harness::JUnit
 
 script:
   - ./build-compiler
