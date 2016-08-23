@@ -61,6 +61,7 @@ install:
   - phpunit --version
 
   # Perl
+  - '(echo y; echo o conf prerequisites_policy follow; echo o conf commit) | cpan'
   - cpan install TAP::Harness::JUnit
 
 script:
