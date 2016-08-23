@@ -27,6 +27,9 @@ addons:
       - php7.0-cli
       - php7.0-dom # required by PHPUnit
       - libtest-class-perl # Test::Class for perl
+      # requirements of TAP::Harness::JUnit
+      - libtest-deep-perl # Test::Deep
+      - libxml-simple-perl # XML::Simple
 
 before_install:
   - cd tests
@@ -61,8 +64,8 @@ install:
   - phpunit --version
 
   # Perl
-  - '(echo y; echo o conf prerequisites_policy follow; echo o conf commit) | cpan'
-  - cpan install TAP::Harness::JUnit
+  - '(echo y; echo o conf prerequisites_policy follow; echo o conf commit) | sudo cpan'
+  - sudo cpan install TAP::Harness::JUnit
 
 script:
   - ./build-compiler
