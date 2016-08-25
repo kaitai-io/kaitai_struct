@@ -24,8 +24,6 @@ addons:
       - mono-mcs
       - mono-devel
       - nuget
-      - php7.0-cli
-      - php7.0-dom # required by PHPUnit
       - libtest-class-perl # Test::Class for perl
       # requirements of TAP::Harness::JUnit
       - libtest-deep-perl # Test::Deep
@@ -58,6 +56,7 @@ install:
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
 
   # PHP: newer PHPUnit, as the one in the repos is very old
+  - phpenv global 7.0.7
   - php --version
   - wget https://phar.phpunit.de/phpunit.phar
   - chmod +x phpunit.phar
