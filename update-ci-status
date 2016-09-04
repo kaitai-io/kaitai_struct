@@ -42,6 +42,9 @@ sha1sum $HOME/bot_id
 # Alas, it seems that Travis CI uses ancient git that doesn't support this
 #export GIT_SSH_COMMAND="ssh -i $HOME/bot_id"
 
+# Squelch long git push strategy explanations
+git config --global push.default simple
+
 echo -n 'Setting up ssh wrapper... '
 cat >$HOME/git-ssh <<__EOF__
 #!/bin/sh -ef
