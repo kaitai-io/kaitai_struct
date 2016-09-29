@@ -34,3 +34,6 @@
 [submodule "runtime/perl"]
 	path = runtime/perl
 	url = https://github.com/kaitai-io/kaitai_struct_perl_runtime
+[submodule "benchmarks"]
+	path = benchmarks
+	url = https://github.com/kaitai-io/kaitai_struct_benchmarks
