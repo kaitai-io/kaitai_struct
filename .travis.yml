@@ -34,9 +34,12 @@ before_install:
   - cd tests
 
 install:
-  # Python
+  # Python 2
   - pip install --user enum34
   - pip install --user unittest-xml-reporting
+
+  # Python 3
+  - pip3 install --user unittest-xml-reporting
 
   # Ruby
   - gem install rspec
