@@ -76,3 +76,8 @@ script:
   - ./build-formats
   - ./run-all
   - ../update-ci-status
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/c6bd60df4d171f9d3789
