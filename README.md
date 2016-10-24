@@ -1,5 +1,7 @@
 # Kaitai Struct
 
+[![Join the chat at https://gitter.im/kaitai_struct/Lobby](https://badges.gitter.im/kaitai_struct/Lobby.svg)](https://gitter.im/kaitai_struct/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## What is Kaitai Struct?
 
 Kaitai Struct is a declarative language used for describe various
