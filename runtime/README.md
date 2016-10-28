@@ -76,3 +76,7 @@ maintain exactly this order of declarations and group headers.
   * `process_xor_many(data, key)`
 * `process_rotate_left(data, amount, group_size)`
 * `process_zlib(data)`
+
+## Misc runtime operations
+
+* `mod(a, b)`
