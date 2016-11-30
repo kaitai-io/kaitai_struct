@@ -10,10 +10,10 @@ file formats, network stream packet formats, etc.
 
 The main idea is that a particular format is described in Kaitai
 Struct language only once and then can be compiled with a `ksc` into
-source files in one of the supported programm languages. These modules
-will include a generated code for a parser that can read described
-data structure from a file / stream and give access to it in a nice,
-easy-to-comprehend API.
+source files in one of the supported programming languages. These
+modules will include a generated code for a parser that can read
+described data structure from a file / stream and give access to it in
+a nice, easy-to-comprehend API.
 
 ## What it's used for?
 
