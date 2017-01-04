@@ -57,6 +57,11 @@ maintain exactly this order of declarations and group headers.
 * `read_f4le`
 * `read_f8le`
 
+## Unaligned bit values
+
+* `read_bits_int(n)`
+* `read_bits_array(n)`
+
 ## Byte arrays
 
 * `read_bytes(n)`
