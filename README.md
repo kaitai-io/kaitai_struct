@@ -111,8 +111,8 @@ console.log("height = " + g.logicalScreen().imageHeight());
 
 ```python
 g = Gif.from_file("path/to/some.gif")
-print "width = %d" % (g.logical_screen.image_width)
-print "height = %d" % (g.logical_screen.image_height)
+print "width = %d" % (g.logical_screen_descriptor.screen_width)
+print "height = %d" % (g.logical_screen_descriptor.screen_height)
 ```
 
 ### In Ruby
