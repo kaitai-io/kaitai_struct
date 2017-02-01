@@ -59,6 +59,7 @@ maintain exactly this order of declarations and group headers.
 
 ## Unaligned bit values
 
+* `align_to_byte()`
 * `read_bits_int(n)`
 * `read_bits_array(n)`
 
