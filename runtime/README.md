@@ -67,13 +67,11 @@ maintain exactly this order of declarations and group headers.
 
 * `read_bytes(n)`
 * `read_bytes_full`
-* `ensure_fixed_contents`
-
-## Strings
-
-* `read_str_eos(String encoding)`
-* `read_str_byte_limit(long len, String encoding)`
-* `read_strz(String encoding, int term, boolean includeTerm, boolean consumeTerm, boolean eosError)`
+* `read_bytes_term(String encoding, int term, boolean include_term, boolean consumeTerm, boolean eosError)`
+* `ensure_fixed_contents(expected)`
+* static `bytes_strip_right(bytes, pad_byte)`
+* static `bytes_terminate(bytes, term, include_term)`
+* static `bytes_to_str(bytes, encoding)`
 
 ## Byte array processing
 
@@ -85,4 +83,4 @@ maintain exactly this order of declarations and group headers.
 
 ## Misc runtime operations
 
-* `mod(a, b)`
+* static `mod(a, b)`
