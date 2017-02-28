@@ -62,7 +62,7 @@ install:
   - phpenv global 7.0.7
   - php --version
   # PHP: newer PHPUnit, as the one in the repos is very old
-  - sudo dpkg --purge phpunit
+  - sudo rm -f $(which phpunit)
   - wget https://phar.phpunit.de/phpunit.phar
   - chmod +x phpunit.phar
   - sudo mv phpunit.phar /usr/local/bin/phpunit
