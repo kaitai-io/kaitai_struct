@@ -58,9 +58,11 @@ install:
   - mono --version
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
 
-  # PHP: newer PHPUnit, as the one in the repos is very old
+  # PHP: switch to newer PHP
   - phpenv global 7.0.7
   - php --version
+  # PHP: newer PHPUnit, as the one in the repos is very old
+  - dpkg --purge phpunit
   - wget https://phar.phpunit.de/phpunit.phar
   - chmod +x phpunit.phar
   - sudo mv phpunit.phar /usr/local/bin/phpunit
