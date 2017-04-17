@@ -78,7 +78,7 @@ script:
   - ./translator-tests || true
   - ./build-formats
   - ./publish-targets
-  - ./run-all
+  - ./ci-all
   - ../update-ci-status
 
 notifications:
