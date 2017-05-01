@@ -40,3 +40,6 @@
 [submodule "doc"]
 	path = doc
 	url = https://github.com/kaitai-io/kaitai_struct_doc
+[submodule "runtime/go"]
+	path = runtime/go
+	url = https://github.com/kaitai-io/kaitai_struct_go_runtime
