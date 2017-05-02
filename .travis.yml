@@ -73,6 +73,11 @@ install:
   - '(echo y; echo o conf prerequisites_policy follow; echo o conf commit) | sudo cpan'
   - sudo cpan install TAP::Harness::JUnit
 
+  # Go
+  - export GOPATH="$HOME/go"
+  - go version
+  - go get github.com/stretchr/testify/assert
+
 script:
   - ./build-compiler
   - ./translator-tests || true
