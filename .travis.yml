@@ -30,8 +30,6 @@ addons:
       - libtest-deep-perl # Test::Deep
       - libxml-simple-perl # XML::Simple
       - libmodule-build-perl # Module::Build
-      # Go
-      - golang-golang-x-text-dev
 
 before_install:
   - cd tests
@@ -79,6 +77,7 @@ install:
   - export GOPATH="$HOME/go"
   - go version
   - go get github.com/stretchr/testify/assert
+  - go get golang.org/x/text
 
 script:
   - ./build-compiler
