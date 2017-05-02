@@ -78,6 +78,7 @@ install:
   - go version
   - go get github.com/stretchr/testify/assert
   - go get golang.org/x/text
+  - go get github.com/jstemmer/go-junit-report
 
 script:
   - ./build-compiler
