@@ -30,6 +30,8 @@ addons:
       - libtest-deep-perl # Test::Deep
       - libxml-simple-perl # XML::Simple
       - libmodule-build-perl # Module::Build
+      # Go
+      - golang-golang-x-text-dev
 
 before_install:
   - cd tests
