@@ -20,6 +20,7 @@ addons:
       - sourceline: ppa:ondrej/php
     packages:
       - libboost-test-dev
+      - valgrind
       - ca-certificates-mono
       - mono-xbuild
       - mono-mcs
