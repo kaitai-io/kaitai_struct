@@ -1,4 +1,4 @@
-# version: 5
+# version: 6
 
 # Use Ubuntu Trusty 14.04 image; unfortunately, it requires "sudo: true"
 # and thus is very slow :(
