@@ -81,8 +81,13 @@ install:
   - go get golang.org/x/text
   - go get github.com/jstemmer/go-junit-report
 
+env:
+  global:
+    secure: "RkXbPS9epGsUQFE49p/I0xXmVg0SqMXpMaAUroDHhTFY5Plv6W++OUHZM56uR21Vlpit/lsSo3LiLHLZdAx5VlRIhf7QlmX/IxbPBqF4A1UbzM7rxWJLYb4c+dXG+GSB924sHv0tjjxi1Po1EVG+AjrYJ3O9YZwZaXhOmWLsZ0IjN8UYs1Ip/HrxsdPL8qWZSc3jIzBq39jfoaOYy2h0yvqJfJIjyWgIiXbRVj9R36IlXwZ7vV6tZuqjewJLqz3/WL518YW1+rjxEhGexnCEV+g0Ff1vi3Mq1JWpki5BemSej/9jTRbjhWOjHz3HVq0XgSN1hncbPGDrxlPsnDB4El3CTwx2tmCJmho+XI0xaQqh0isW2ftXtZ5Kmtgwam6CZCqORSJJKoIwPxRIlSzZYK+ZQ93LwHq76K6LgNpgPrLyQ1l7HFdlNIMnkgHkJKsGTehmhlNXLyVwNjwTBHIXX70iaIEEG2K/fGRRcwdiOyqsmXPYsNHOSIOziBslFnd2s37gVoETaGdW0I6J9vkmQ0Cn5BHFst765Ag2NqFyqijFBbIyy/odvLrIB/rRthsDxzxClxih3bU19RfQn04cLR63K0Rq5uymiHMilPIyrZ/V65KWNASnPneYvZUJ3v8EpeXtVddFaqhr4Q0AQEsbFxvucPz854JnLkKo2TghHIE="
+  
 script:
   - ./build-compiler
+  - ./publish-js-compiler
   - ./translator-tests || true
   - ./build-formats
   - ./publish-targets
