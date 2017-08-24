@@ -43,3 +43,6 @@
 [submodule "runtime/go"]
 	path = runtime/go
 	url = https://github.com/kaitai-io/kaitai_struct_go_runtime
+[submodule "runtime/lua"]
+	path = runtime/lua
+	url = https://github.com/kaitai-io/kaitai_struct_lua_runtime
