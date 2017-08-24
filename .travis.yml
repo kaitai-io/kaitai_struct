@@ -87,6 +87,11 @@ install:
   - go get golang.org/x/text
   - go get github.com/jstemmer/go-junit-report
 
+  # Lua: getting luaunit is ugly, but this is actually almost literally what its README says
+  - wget https://raw.githubusercontent.com/bluebird75/luaunit/master/luaunit.lua
+  - sudo mkdir -p /usr/local/lib/lua/5.3/
+  - sudo mv luaunit.lua /usr/local/lib/lua/5.3/
+
 script:
   - ./build-compiler
   - ./publish-js-compiler
