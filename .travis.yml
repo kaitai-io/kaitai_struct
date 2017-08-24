@@ -18,19 +18,25 @@ addons:
     sources:
       - mono
       - sourceline: ppa:ondrej/php
+      - sourceline: ppa:ubuntu-cloud-archive/mitaka-staging
     packages:
+      # C++
       - libboost-test-dev
       - valgrind
+      # C#, Mono
       - ca-certificates-mono
       - mono-xbuild
       - mono-mcs
       - mono-devel
       - nuget
+      # Perl
       - libtest-class-perl # Test::Class for perl
       # requirements of TAP::Harness::JUnit
       - libtest-deep-perl # Test::Deep
       - libxml-simple-perl # XML::Simple
       - libmodule-build-perl # Module::Build
+      # Lua
+      - lua5.3
 
 before_install:
   - cd tests
