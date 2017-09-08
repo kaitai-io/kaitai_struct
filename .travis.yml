@@ -7,7 +7,7 @@ sudo: true
 
 language: scala
 scala:
-  - 2.11.7
+  - 2.11.11
 
 cache:
   directories:
@@ -39,6 +39,11 @@ addons:
       - lua5.3
 
 before_install:
+  - python --version
+  - python3 --version
+  - pyenv global system 3.5
+  - python --version
+  - python3 --version
   - cd tests
 
 install:
