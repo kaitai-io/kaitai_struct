@@ -39,8 +39,6 @@ addons:
       - lua5.3
 
 before_install:
-  - python --version
-  - python3 --version
   - pyenv global system 3.5
   - python --version
   - python3 --version
@@ -72,7 +70,7 @@ install:
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
 
   # PHP: switch to newer PHP
-  - phpenv global 7.0.7
+  - phpenv global 7.0.22
   - php --version
   # PHP: newer PHPUnit, as the one in the repos is very old
   - sudo rm -f $(which phpunit)
