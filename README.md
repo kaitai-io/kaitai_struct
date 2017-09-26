@@ -107,6 +107,14 @@ console.log("width = " + g.logicalScreen().imageWidth());
 console.log("height = " + g.logicalScreen().imageHeight());
 ```
 
+### In Lua
+
+```lua
+local g = Gif:from_file("path/to/some.gif")
+print("width = " .. g.logical_screen.image_width)
+print("height = " .. g.logical_screen.image_height)
+```
+
 ### In Python
 
 ```python
@@ -135,6 +143,7 @@ source modules for the following languages:
 * C#
 * Java
 * JavaScript
+* Lua
 * Python
 * Ruby
 
@@ -158,6 +167,7 @@ consitute Kaitai Struct suite. They are:
   * [kaitai_struct_csharp_runtime](https://github.com/kaitai-io/kaitai_struct_csharp_runtime) — for C#
   * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) — for Java
   * [kaitai_struct_javascript_runtime](https://github.com/kaitai-io/kaitai_struct_javascript_runtime) — for JavaScript
+  * [kaitai_struct_lua_runtime](https://github.com/kaitai-io/kaitai_struct_lua_runtime) — for Lua
   * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) — for Python
   * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) — for Ruby
   * [kaitai_struct_swift_runtime](https://github.com/kaitai-io/kaitai_struct_swift_runtime) — for Swift
