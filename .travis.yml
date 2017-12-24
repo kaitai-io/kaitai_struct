@@ -70,7 +70,7 @@ install:
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
 
   # PHP: switch to newer PHP
-  - phpenv global 7.0.22
+  - phpenv global 7.0.25
   - php --version
   # PHP: newer PHPUnit, as the one in the repos is very old
   - sudo rm -f $(which phpunit)
