@@ -39,7 +39,7 @@ addons:
       - lua5.3
 
 before_install:
-  - pyenv global system 3.5
+  - pyenv global system 3.4
   - python --version
   - python3 --version
   - cd tests
