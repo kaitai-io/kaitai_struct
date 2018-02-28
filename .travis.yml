@@ -16,7 +16,7 @@ cache:
 
 env:
   global:
-    - KAITAI_STRUCT_VERSION=0.8-SNAPSHOT${TRAVIS_BUILD_ID}
+    - KAITAI_STRUCT_VERSION=0.9-SNAPSHOT${TRAVIS_BUILD_ID}
 
 addons:
   apt:
@@ -102,6 +102,7 @@ install:
 
 script:
   - ./build-compiler
+  - cd ../compiler && ./publish_to_bintray.sh && cd ../tests
   - ./publish-js-compiler
   - ./translator-tests || true
   - ./build-formats
