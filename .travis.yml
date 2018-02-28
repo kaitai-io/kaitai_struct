@@ -26,9 +26,9 @@ addons:
       - sourceline: ppa:ubuntu-cloud-archive/mitaka-staging
     packages:
       # Debian package build
-      - dpkg-deb
+      - dpkg
       - dpkg-sig
-      - dpkg-genchanges
+      - dpkg-dev
       - lintian
       - fakeroot
       # C++
