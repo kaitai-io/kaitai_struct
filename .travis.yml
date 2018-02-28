@@ -102,7 +102,10 @@ install:
 
 script:
   - ./build-compiler
-  - cd ../compiler && ./publish_to_bintray.sh && cd ../tests
+  - cd ../compiler
+  - sbt compilerJVM/debian:packageBin
+  - ./publish_to_bintray.sh
+  - cd ../tests
   - ./publish-js-compiler
   - ./translator-tests || true
   - ./build-formats
