@@ -25,6 +25,12 @@ addons:
       - sourceline: ppa:ondrej/php
       - sourceline: ppa:ubuntu-cloud-archive/mitaka-staging
     packages:
+      # Debian package build
+      - dpkg-deb
+      - dpkg-sig
+      - dpkg-genchanges
+      - lintian
+      - fakeroot
       # C++
       - libboost-test-dev
       - valgrind
