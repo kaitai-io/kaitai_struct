@@ -101,8 +101,10 @@ System.out.println("height = " + g.logicalScreen().imageHeight());
 
 ### In JavaScript
 
+See [JavaScript notes in the documentation](http://doc.kaitai.io/lang_javascript.html) for a more complete quick start guide.
+
 ```javascript
-var g = new Gif(someArrayBuffer);
+var g = new Gif(new KaitaiStream(someArrayBuffer));
 console.log("width = " + g.logicalScreen().imageWidth());
 console.log("height = " + g.logicalScreen().imageHeight());
 ```
