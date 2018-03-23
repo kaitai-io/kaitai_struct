@@ -59,9 +59,11 @@ install:
   # Python 2
   - pip install --user enum34
   - pip install --user unittest-xml-reporting
+  - pip install --user construct
 
   # Python 3
   - pip3 install --user unittest-xml-reporting
+  - pip3 install --user construct
 
   # Ruby
   - gem install rspec
