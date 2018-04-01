@@ -97,6 +97,7 @@ install:
   - sudo cpan install TAP::Harness::JUnit
 
   # Go
+  - gimme 1.10.x
   - export GOPATH="$HOME/go"
   - go version
   - go get github.com/stretchr/testify/assert
