@@ -102,6 +102,8 @@ install:
   - go get github.com/stretchr/testify/assert
   - go get golang.org/x/text
   - go get github.com/jstemmer/go-junit-report
+  - go get gopkg.in/alecthomas/gometalinter.v2
+  - gometalinter.v2 --install
 
   # Lua: getting luaunit is ugly, but this is actually almost literally what its README says
   - wget https://raw.githubusercontent.com/bluebird75/luaunit/master/luaunit.lua
