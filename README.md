@@ -4,8 +4,8 @@
 
 ## What is Kaitai Struct?
 
-Kaitai Struct is a declarative language used for describe various
-binary data structures, laid out in files or in memory: i.e. binary
+Kaitai Struct is a declarative language used for describing various
+binary data structures laid out in files or in memory: i.e. binary
 file formats, network stream packet formats, etc.
 
 The main idea is that a particular format is described in Kaitai
@@ -23,7 +23,7 @@ network stream and somehow represents them in memory for easier
 access?
 
 Kaitai Struct tries to make this job easier — you only have to
-describe binary format once and then everybody can use it from their
+describe the binary format once and then everybody can use it from their
 programming languages — cross-language, cross-platform.
 
 Kaitai Struct includes a growing collection of format descriptions,
@@ -34,7 +34,7 @@ submodule repository.
 ## Can you give me a quick example?
 
 Sure. Consider this simple `.ksy` format description file that
-describes header of a GIF file (a popular web image format):
+describes the header of a GIF file (a popular web image format):
 
 ```yaml
 meta:
@@ -67,7 +67,7 @@ types:
         type: u1
 ```
 
-It declares that GIF file usually has `.gif` extension and uses
+It declares that GIF files usually have a `.gif` extension and use
 little-endian integer encoding. The file itself starts with two
 blocks: first comes `header` and then comes `logical_screen`:
 
@@ -133,7 +133,7 @@ puts "width = #{g.logical_screen.image_width}"
 puts "height = #{g.logical_screen.image_height}"
 ```
 
-Of course, this example shows only very limited subset of what Kaitai
+Of course, this example shows only a very limited subset of what Kaitai
 Struct can do. Please refer to the tutorials and documentation for
 more insights.
 
@@ -151,8 +151,8 @@ source modules for the following languages:
 
 ## Downloading and installing
 
-The easiest way to check out whole Kaitai Struct project is to
-download main project repository that already imports all other parts
+The easiest way to check out the whole Kaitai Struct project is to
+download the main project repository that already imports all other parts
 as sub-modules. Use:
 
     git clone --recursive https://github.com/kaitai-io/kaitai_struct.git
@@ -184,7 +184,7 @@ following steps:
 
 * Describe the format — i.e. create a `.ksy` file
 * Compile `.ksy` file into target language source file and include
-  that file into your project
+  that file in your project
 * Add KS runtime library for your particular language into your
   project (don't worry, it's small and it's there mostly to ensure
   readability of generated code)
