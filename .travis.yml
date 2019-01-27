@@ -114,7 +114,7 @@ script:
   - ./build-compiler
   - cd ../compiler
   - sbt compilerJVM/debian:packageBin
-  - ./publish_deb_to_bintray.sh
+  - ./publish_deb_to_bintray.sh && ../trigger-kaitai_struct_python_docker
   - sbt compilerJVM/universal:packageBin
   - ./publish_zip_to_bintray.sh
   - cd ../tests
