@@ -22,7 +22,6 @@ addons:
   apt:
     sources:
       - mono
-      - sourceline: ppa:ondrej/php
       - sourceline: ppa:ubuntu-cloud-archive/mitaka-staging
     packages:
       # Debian package build
@@ -81,16 +80,6 @@ install:
   # C#
   - mono --version
   - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
-
-  # PHP: switch to newer PHP
-  - phpenv global 7.1.11
-  - php --version
-  # PHP: newer PHPUnit, as the one in the repos is very old
-  - sudo rm -f $(which phpunit)
-  - wget https://phar.phpunit.de/phpunit.phar
-  - chmod +x phpunit.phar
-  - sudo mv phpunit.phar /usr/local/bin/phpunit
-  - phpunit --version
 
   # Perl
   - '(echo y; echo o conf prerequisites_policy follow; echo o conf commit) | sudo cpan'
