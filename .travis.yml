@@ -12,7 +12,6 @@ scala:
 cache:
   directories:
     - $HOME/.ivy2
-    - $HOME/.cache/pip
 
 env:
   global:
@@ -20,9 +19,6 @@ env:
 
 addons:
   apt:
-    sources:
-      - mono
-      - sourceline: ppa:ubuntu-cloud-archive/mitaka-staging
     packages:
       # Debian package build
       - dpkg
@@ -30,76 +26,9 @@ addons:
       - dpkg-dev
       - lintian
       - fakeroot
-      # C++
-      - libboost-test-dev
-      - valgrind
-      # C#, Mono
-      - ca-certificates-mono
-      - mono-xbuild
-      - mono-mcs
-      - mono-devel
-      - nuget
-      # Perl
-      - libtest-class-perl # Test::Class for perl
-      # requirements of TAP::Harness::JUnit
-      - libtest-deep-perl # Test::Deep
-      - libxml-simple-perl # XML::Simple
-      - libmodule-build-perl # Module::Build
-      # Lua
-      - lua5.3
-
-before_install:
-  - pyenv global system 3.6.3
-  - python --version
-  - python3 --version
-  - cd tests
-
-install:
-  # Python 2
-  - pip install --user enum34
-  - pip install --user unittest-xml-reporting
-  - pip install --user construct
-
-  # Python 3
-  - pip3 install --user unittest-xml-reporting
-  - pip3 install --user construct
-
-  # Ruby
-  - gem install rspec
-
-  # JavaScript
-  - nvm install 5
-  - nvm use 5
-  - npm install mocha iconv-lite
-
-  # Java: poor man's maven implementation in 3 lines :)
-  - mkdir -p "$HOME/.m2/repository/org/testng/testng/6.9.10" "$HOME/.m2/repository/com/beust/jcommander/1.48"
-  - wget -O "$HOME/.m2/repository/org/testng/testng/6.9.10/testng-6.9.10.jar" http://jcenter.bintray.com/org/testng/testng/6.9.10/testng-6.9.10.jar
-  - wget -O "$HOME/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar" http://jcenter.bintray.com/com/beust/jcommander/1.48/jcommander-1.48.jar
-
-  # C#
-  - mono --version
-  - nuget restore spec/csharp/kaitai_struct_csharp_tests.sln
-
-  # Perl
-  - '(echo y; echo o conf prerequisites_policy follow; echo o conf commit) | sudo cpan'
-  - sudo cpan install TAP::Harness::JUnit
-
-  # Go
-  - eval "$(gimme 1.10)"
-  - go version
-  - go get github.com/stretchr/testify/assert
-  - go get golang.org/x/text
-  - go get github.com/jstemmer/go-junit-report
-  - go get gopkg.in/alecthomas/gometalinter.v2
-  - gometalinter.v2 --install
-
-  # Lua: getting luaunit is ugly, but this is actually almost literally what its README says
-  - wget https://raw.githubusercontent.com/bluebird75/luaunit/master/luaunit.lua
-  - sudo mkdir -p /usr/local/lib/lua/5.3/
-  - sudo mv luaunit.lua /usr/local/lib/lua/5.3/
 
 script:
+  - cd tests
   - ./build-compiler
   - cd ../compiler
   - sbt compilerJVM/debian:packageBin
@@ -111,8 +40,6 @@ script:
   - ./translator-tests || true
   - ./build-formats
   - ./publish-targets
-  - ./ci-all
-  - ../update-ci-status
 
 notifications:
   webhooks:
