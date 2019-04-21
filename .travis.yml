@@ -21,7 +21,7 @@ addons:
 
 script:
   - cd compiler
-  - export GIT_COMMIT=$(git log -1 %h)
+  - export GIT_COMMIT=$(git log -1 --format=%h)
   - export GIT_DATE_ISO=$(TZ=UTC git log -1 --date=iso-strict-local --format=%cd)
   - export GIT_DATE=$(TZ=UTC git log -1 --date=format-local:%Y%m%d.%H%M%S --format=%cd)
   - export KAITAI_STRUCT_VERSION=0.9-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
