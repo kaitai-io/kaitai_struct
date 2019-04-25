@@ -25,11 +25,11 @@ script:
   - export GIT_DATE_ISO=$(TZ=UTC git log -1 --date=iso-strict-local --format=%cd)
   - export GIT_DATE=$(TZ=UTC git log -1 --date=format-local:%Y%m%d.%H%M%S --format=%cd)
   - export KAITAI_STRUCT_VERSION=0.9-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
-  - sbt compile compilerJVM/stage fastOptJS compilerJVM/debian:packageBin compilerJVM/universal:packageBin
+  - sbt compile compilerJVM/stage fastOptJS buildNpmJsFile buildNpmPackage compilerJVM/debian:packageBin compilerJVM/universal:packageBin
   - ./publish_deb_to_bintray.sh && ../trigger-kaitai_struct_python_docker
   - ./publish_zip_to_bintray.sh
+  - ./publish_js_to_npm.sh
   - cd ../tests
-  - ./publish-js-compiler
   - ./translator-tests || true
   - ./build-formats
   - ./publish-targets
