@@ -1,0 +1,36 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-16.04
+
+variables:
+  GIT_COMMIT: $(git log -1 --format=%h)
+  GIT_DATE_ISO: $(TZ=UTC git log -1 --date=iso-strict-local --format=%cd)
+  GIT_DATE: $(TZ=UTC git log -1 --date=format-local:%Y%m%d.%H%M%S --format=%cd)
+  KAITAI_STRUCT_VERSION: 0.9-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
+
+steps:
+- bash: git submodule update --init --recursive
+  displayName: 'Set up the workspace'
+
+- bash: |
+    sbt compile compilerJVM/stage fastOptJS buildNpmJsFile buildNpmPackage compilerJVM/debian:packageBin compilerJVM/universal:packageBin
+    # ./publish_deb_to_bintray.sh && ../trigger-kaitai_struct_python_docker
+    # ./publish_zip_to_bintray.sh
+    # ./publish_js_to_npm.sh
+  displayName: 'Compile & Publish'
+  workingDirectory: '$(system.defaultWorkingDirectory)/compiler'
+
+- script: translator-tests
+  displayName: 'Translator Tests'
+  workingDirectory: '$(system.defaultWorkingDirectory)/tests'
+  continueOnError: true
+
+- script: build-formats
+  displayName: 'Build Formats'
+  workingDirectory: '$(system.defaultWorkingDirectory)/tests'
+
+# - script: publish-targets
+#   displayName: 'Publish Targets'
+#   workingDirectory: '$(system.defaultWorkingDirectory)/tests'
