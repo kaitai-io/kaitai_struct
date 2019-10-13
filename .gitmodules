@@ -46,3 +46,6 @@
 [submodule "runtime/lua"]
 	path = runtime/lua
 	url = https://github.com/kaitai-io/kaitai_struct_lua_runtime
+[submodule "runtime/nim"]
+	path = runtime/nim
+	url = https://github.com/kaitai-io/kaitai_struct_nim_runtime
