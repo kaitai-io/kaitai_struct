@@ -1,0 +1,30 @@
+#!/bin/sh -ef
+
+# https://travis-ci.org/kaitai-io/kaitai_struct_webide needs to be
+# rebuilt after we publish newest JS build of ksc to npm.
+
+SLUG='kaitai-io%2Fkaitai_struct_webide'
+
+echo Triggering build for kaitai_struct_webide project...
+if [ -n "$KAITAI_STRUCT_WEBIDE_TOKEN" ]; then
+	body="
+	{
+		\"request\": {
+			\"message\": \"Build with kaitai-struct-compiler v$KAITAI_STRUCT_VERSION\",
+			\"branch\":\"master\"
+		}
+	}
+	"
+
+	echo "$body"
+
+	curl -s -X POST \
+		-H "Content-Type: application/json" \
+		-H "Accept: application/json" \
+		-H "Travis-API-Version: 3" \
+		-H "Authorization: token $KAITAI_STRUCT_WEBIDE_TOKEN" \
+		-d "$body" \
+		https://api.travis-ci.org/repo/$SLUG/requests
+else
+	echo "No KAITAI_STRUCT_WEBIDE_TOKEN found!"
+fi
