@@ -3,9 +3,10 @@
 # https://travis-ci.org/kaitai-io/kaitai_struct_webide needs to be
 # rebuilt after we publish newest JS build of ksc to npm.
 
-SLUG='kaitai-io%2Fkaitai_struct_webide'
+PROJECT='kaitai-io/kaitai_struct_webide'
+SLUG=$(echo "$PROJECT" | sed 's,/,%2F,g')
 
-echo Triggering build for kaitai_struct_webide project...
+echo "Triggering build for $PROJECT project..."
 if [ -n "$KAITAI_STRUCT_WEBIDE_TOKEN" ]; then
 	body="
 	{
