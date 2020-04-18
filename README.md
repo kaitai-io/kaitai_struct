@@ -117,6 +117,13 @@ print("width = " .. g.logical_screen.image_width)
 print("height = " .. g.logical_screen.image_height)
 ```
 
+### In Nim
+```nim
+let g = Gif.fromFile("path/to/some.gif")
+echo "width = " & $g.logicalScreen.imageWidth
+echo "height = " & $g.logicalScreen.imageHeight
+```
+
 ### In Python
 
 ```python
@@ -146,6 +153,7 @@ source modules for the following languages:
 * Java
 * JavaScript
 * Lua
+* Nim
 * Python
 * Ruby
 
@@ -169,6 +177,7 @@ consitute Kaitai Struct suite. They are:
   * [kaitai_struct_csharp_runtime](https://github.com/kaitai-io/kaitai_struct_csharp_runtime) — for C#
   * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) — for Java
   * [kaitai_struct_javascript_runtime](https://github.com/kaitai-io/kaitai_struct_javascript_runtime) — for JavaScript
+  * [kaitai_struct_nim_runtime](https://github.com/kaitai-io/kaitai_struct_nim_runtime) — for Nim
   * [kaitai_struct_lua_runtime](https://github.com/kaitai-io/kaitai_struct_lua_runtime) — for Lua
   * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) — for Python
   * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) — for Ruby
