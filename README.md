@@ -96,10 +96,10 @@ See [C++/STL notes in the documentation](http://doc.kaitai.io/lang_cpp_stl.html)
 int main() {
     std::ifstream is("my.gif", std::ifstream::binary);
     kaitai::kstream ks(&is);
-    gif_t* data = new gif_t(&ks);
+    gif_t* g = new gif_t(&ks);
 
-    std::cout << "width = " << data->logical_screen()->image_width() << std::endl;
-    std::cout << "height = " << data->logical_screen()->image_height() << std::endl;
+    std::cout << "width = " << g->logical_screen()->image_width() << std::endl;
+    std::cout << "height = " << g->logical_screen()->image_height() << std::endl;
 
     return 0;
 }
