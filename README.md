@@ -80,7 +80,7 @@ blocks: first comes `header` and then comes `logical_screen`:
     unsigned int each
 
 This `.ksy` file can be compiled it into `Gif.cs` / `Gif.java` /
-`Gif.js` / `gif.py` / `gif.rb` and then instantly one can load .gif
+`Gif.js` / `Gif.php` / `gif.py` / `gif.rb` and then instantly one can load .gif
 file and access, for example, it's width and height.
 
 ### In C\#
@@ -124,6 +124,14 @@ echo "width = " & $g.logicalScreen.imageWidth
 echo "height = " & $g.logicalScreen.imageHeight
 ```
 
+### In PHP
+
+```php
+$g = Gif::fromFile('path/to/some.gif');
+printf("width = %d\n", $g->logicalScreen()->imageWidth());
+printf("height = %d\n", $g->logicalScreen()->imageHeight());
+```
+
 ### In Python
 
 ```python
@@ -154,6 +162,7 @@ source modules for the following languages:
 * JavaScript
 * Lua
 * Nim
+* PHP
 * Python
 * Ruby
 
