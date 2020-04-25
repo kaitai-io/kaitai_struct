@@ -79,9 +79,31 @@ blocks: first comes `header` and then comes `logical_screen`:
   * `flags`, `bg_color_index` and `pixel_aspect_ratio` take 1-byte
     unsigned int each
 
-This `.ksy` file can be compiled it into `Gif.cs` / `Gif.java` /
+This `.ksy` file can be compiled it into `gif.cpp` / `Gif.cs` / `Gif.java` /
 `Gif.js` / `gif.py` / `gif.rb` and then instantly one can load .gif
 file and access, for example, it's width and height.
+
+### In C++
+
+See [C++/STL notes in the documentation](http://doc.kaitai.io/lang_cpp_stl.html) for a more complete quick start guide.
+
+```cpp
+#include <fstream>
+#include <kaitai/kaitaistream.h>
+#include <iostream>
+#include "gif.h"
+
+int main() {
+    std::ifstream is("my.gif", std::ifstream::binary);
+    kaitai::kstream ks(&is);
+    gif_t* data = new gif_t(&ks);
+
+    std::cout << "width = " << data->logical_screen()->image_width() << std::endl;
+    std::cout << "height = " << data->logical_screen()->image_height() << std::endl;
+
+    return 0;
+}
+```
 
 ### In C\#
 
