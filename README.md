@@ -171,6 +171,7 @@ more insights.
 Official Kaitai Struct [compiler] now supports compiling `.ksy` into
 source modules for the following languages:
 
+* C++
 * C#
 * Java
 * JavaScript
