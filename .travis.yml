@@ -37,7 +37,7 @@ script:
       -o kaitai-io \
       -r ci_targets \
       -m "Regen $TRAVIS_BRANCH kaitai-io/kaitai_struct@$TRAVIS_COMMIT" \
-      -- --exclude=.git --exclude=.travis.yml compiled/
+      -- --exclude=.git --exclude=.travis.yml compiled
 
 notifications:
   webhooks:
