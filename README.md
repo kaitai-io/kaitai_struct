@@ -155,16 +155,22 @@ more insights.
 ## Supported languages
 
 Official Kaitai Struct [compiler] now supports compiling `.ksy` into
-source modules for the following languages:
+source modules for [the following languages](https://github.com/kaitai-io?q=runtime&type=&language=):
 
+* C++
 * C#
+* Go
 * Java
 * JavaScript
+* TypeScript
 * Lua
+* Perl
 * Nim
 * PHP
 * Python
 * Ruby
+* Swift
+* Rust
 
 ## Downloading and installing
 
@@ -184,13 +190,18 @@ consitute Kaitai Struct suite. They are:
 * Runtime libraries
   * [kaitai_struct_cpp_stl_runtime](https://github.com/kaitai-io/kaitai_struct_cpp_stl_runtime) — for C++/STL
   * [kaitai_struct_csharp_runtime](https://github.com/kaitai-io/kaitai_struct_csharp_runtime) — for C#
+  * [kaitai_struct_go_runtime](https://github.com/kaitai-io/kaitai_struct_go_runtime) — for Go
   * [kaitai_struct_java_runtime](https://github.com/kaitai-io/kaitai_struct_java_runtime) — for Java
   * [kaitai_struct_javascript_runtime](https://github.com/kaitai-io/kaitai_struct_javascript_runtime) — for JavaScript
+  * [kaitai_struct_typescript_runtime](https://github.com/kaitai-io/kaitai_struct_typescript_runtime) — for TypeScript
   * [kaitai_struct_nim_runtime](https://github.com/kaitai-io/kaitai_struct_nim_runtime) — for Nim
   * [kaitai_struct_lua_runtime](https://github.com/kaitai-io/kaitai_struct_lua_runtime) — for Lua
+  * [kaitai_struct_perl_runtime](https://github.com/kaitai-io/kaitai_struct_perl_runtime) — for Perl
+  * [kaitai_struct_php_runtime](https://github.com/kaitai-io/kaitai_struct_php_runtime) — for PHP
   * [kaitai_struct_python_runtime](https://github.com/kaitai-io/kaitai_struct_python_runtime) — for Python
   * [kaitai_struct_ruby_runtime](https://github.com/kaitai-io/kaitai_struct_ruby_runtime) — for Ruby
   * [kaitai_struct_swift_runtime](https://github.com/kaitai-io/kaitai_struct_swift_runtime) — for Swift
+  * [kaitai_struct_rust_runtime](https://github.com/kaitai-io/kaitai_struct_rust_runtime) — for Rust
 * [kaitai_struct_formats](https://github.com/kaitai-io/kaitai_struct_formats)
   — library of widely used formats and binary structures described as
   `.ksy` files
