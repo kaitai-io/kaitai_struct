@@ -26,9 +26,8 @@ script:
   - export GIT_DATE=$(TZ=UTC git log -1 --date=format-local:%Y%m%d.%H%M%S --format=%cd)
   - export KAITAI_STRUCT_VERSION=0.10-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
   - sbt compile compilerJVM/stage fastOptJS buildNpmJsFile buildNpmPackage compilerJVM/debian:packageBin compilerJVM/universal:packageBin
-  - ./publish_deb_to_bintray.sh && ../trigger-kaitai_struct_python_docker
   - ./publish_deb_to_cloudsmith.sh
-  - ./publish_zip_to_bintray.sh
+  - ../trigger-kaitai_struct_python_docker
   - ./publish_js_to_npm.sh && ../trigger-kaitai_struct_webide
   - cd ../tests
   - ./translator-tests || true
