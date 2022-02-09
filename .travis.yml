@@ -1,6 +1,10 @@
 dist: xenial
 sudo: false
 
+branches:
+  only:
+    - master
+
 language: scala
 scala:
   - 2.12.4
