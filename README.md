@@ -2,6 +2,10 @@
 
 [![Join the chat at https://gitter.im/kaitai_struct/Lobby](https://badges.gitter.im/kaitai_struct/Lobby.svg)](https://gitter.im/kaitai_struct/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+> **Note:** if you want to make changes to the project, do **not** fork this repository *kaitai_struct*. Instead, choose the component you want to modify in the file tree and fork **that** individual component instead (for example [`formats`](https://github.com/kaitai-io/kaitai_struct_formats), [`compiler`](https://github.com/kaitai-io/kaitai_struct_compiler), [`runtime/python`](https://github.com/kaitai-io/kaitai_struct_python_runtime)).
+>
+> This is an umbrella repository, containing the components only as submodules to make it easier to check out the entire project. Unless you want to modify this README, it is not the repo where you can make edits.
+
 ## What is Kaitai Struct?
 
 Kaitai Struct is a declarative language used for describing various
@@ -170,13 +174,13 @@ source modules for the following languages:
 
 The easiest way to check out the whole Kaitai Struct project is to
 download the main project repository that already imports all other parts
-as sub-modules. Use:
+as submodules. Use:
 
     git clone --recursive https://github.com/kaitai-io/kaitai_struct.git
 
 Note the `--recursive` option.
 
-Alternatively, one can check out individual sub-projects that
+Alternatively, one can check out individual subprojects that
 consitute Kaitai Struct suite. They are:
 
 * [kaitai_struct_compiler](https://github.com/kaitai-io/kaitai_struct_compiler) — compiler that translates `.ksy` into a parser source code written in a target programming language
