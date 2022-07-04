@@ -19,7 +19,7 @@ if [ -n "$KAITAI_STRUCT_WEBIDE_TOKEN" ]; then
 
 	echo "$body"
 
-	curl -fsSL \
+	curl -v -fsSL \
 		-H "Content-Type: application/json" \
 		-H "Accept: application/json" \
 		-H "Travis-API-Version: 3" \
