@@ -37,11 +37,14 @@ script:
   - ./translator-tests || true
   - ./build-formats
   - ./push_artifacts/git_config_kaitai_bot
-  - ./push_artifacts/publish \
-      -o kaitai-io \
-      -r ci_targets \
-      -m "Regen $TRAVIS_BRANCH kaitai-io/kaitai_struct@$TRAVIS_COMMIT" \
-      -- --exclude=.git --exclude=.travis.yml compiled
+  - ./push_artifacts/publish
+      -o kaitai-io
+      -r ci_targets
+      -m "Regen $TRAVIS_BRANCH kaitai-io/kaitai_struct@$TRAVIS_COMMIT"
+      --
+      --exclude=.git
+      --exclude=.travis.yml
+      compiled
 
 notifications:
   webhooks:
