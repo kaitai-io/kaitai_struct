@@ -19,6 +19,8 @@ modules will include a generated code for a parser that can read
 described data structure from a file / stream and give access to it in
 a nice, easy-to-comprehend API.
 
+To see an example, visit https://kaitai.io/#quick-start.
+
 ## What it's used for?
 
 Have you ever found yourself writing repetitive, error-prone and
@@ -35,140 +37,6 @@ available in
 [formats](https://github.com/kaitai-io/kaitai_struct_formats)
 submodule repository.
 
-## Can you give me a quick example?
-
-Sure. Consider this simple `.ksy` format description file that
-describes the header of a GIF file (a popular web image format):
-
-```yaml
-meta:
-  id: gif
-  file-extension: gif
-  endian: le
-seq:
-  - id: header
-    type: header
-  - id: logical_screen
-    type: logical_screen
-types:
-  header:
-    seq:
-      - id: magic
-        contents: 'GIF'
-      - id: version
-        size: 3
-  logical_screen:
-    seq:
-      - id: image_width
-        type: u2
-      - id: image_height
-        type: u2
-      - id: flags
-        type: u1
-      - id: bg_color_index
-        type: u1
-      - id: pixel_aspect_ratio
-        type: u1
-```
-
-It declares that GIF files usually have a `.gif` extension and use
-little-endian integer encoding. The file itself starts with two
-blocks: first comes `header` and then comes `logical_screen`:
-
-* "Header" consists of "magic" string of 3 bytes ("GIF") that
-  identifies that it's a GIF file starting and then there are 3 more
-  bytes that identify format version (`87a` or `89a`).
-* "Logical screen descriptor" is a block of integers:
-  * `image_width` and `image_height` are 2-byte unsigned ints
-  * `flags`, `bg_color_index` and `pixel_aspect_ratio` take 1-byte
-    unsigned int each
-
-This `.ksy` file can be compiled it into `Gif.cs` / `Gif.java` /
-`Gif.js` / `Gif.php` / `gif.py` / `gif.rb` and then instantly one can load .gif
-file and access, for example, it's width and height.
-
-### In C\#
-
-```cs
-Gif g = Gif.FromFile("path/to/some.gif");
-Console.WriteLine("width = " + g.LogicalScreen.ImageWidth);
-Console.WriteLine("height = " + g.LogicalScreen.ImageHeight);
-```
-
-### In Java
-
-```java
-Gif g = Gif.fromFile("path/to/some.gif");
-System.out.println("width = " + g.logicalScreen().imageWidth());
-System.out.println("height = " + g.logicalScreen().imageHeight());
-```
-
-### In JavaScript
-
-See [JavaScript notes in the documentation](http://doc.kaitai.io/lang_javascript.html) for a more complete quick start guide.
-
-```javascript
-var g = new Gif(new KaitaiStream(someArrayBuffer));
-console.log("width = " + g.logicalScreen.imageWidth);
-console.log("height = " + g.logicalScreen.imageHeight);
-```
-
-### In Lua
-
-```lua
-local g = Gif:from_file("path/to/some.gif")
-print("width = " .. g.logical_screen.image_width)
-print("height = " .. g.logical_screen.image_height)
-```
-
-### In Nim
-```nim
-let g = Gif.fromFile("path/to/some.gif")
-echo "width = " & $g.logicalScreen.imageWidth
-echo "height = " & $g.logicalScreen.imageHeight
-```
-
-### In PHP
-
-```php
-$g = Gif::fromFile('path/to/some.gif');
-printf("width = %d\n", $g->logicalScreen()->imageWidth());
-printf("height = %d\n", $g->logicalScreen()->imageHeight());
-```
-
-### In Python
-
-```python
-g = Gif.from_file("path/to/some.gif")
-print "width = %d" % (g.logical_screen.image_width)
-print "height = %d" % (g.logical_screen.image_height)
-```
-
-### In Ruby
-
-```ruby
-g = Gif.from_file("path/to/some.gif")
-puts "width = #{g.logical_screen.image_width}"
-puts "height = #{g.logical_screen.image_height}"
-```
-
-Of course, this example shows only a very limited subset of what Kaitai
-Struct can do. Please refer to the tutorials and documentation for
-more insights.
-
-## Supported languages
-
-Official Kaitai Struct [compiler] now supports compiling `.ksy` into
-source modules for the following languages:
-
-* C#
-* Java
-* JavaScript
-* Lua
-* Nim
-* PHP
-* Python
-* Ruby
 
 ## Downloading and installing
 
