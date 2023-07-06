@@ -17,19 +17,37 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - name: build
+      - name: build-compiler
         run: |
           cd compiler
           export GIT_COMMIT=$(git log -1 --format=%h)
           export GIT_DATE_ISO=$(TZ=UTC git log -1 --date=iso-strict-local --format=%cd)
           export GIT_DATE=$(TZ=UTC git log -1 --date=format-local:%Y%m%d.%H%M%S --format=%cd)
           export KAITAI_STRUCT_VERSION=0.11-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
-          sbt compile compilerJVM/stage fastOptJS buildNpmJsFile buildNpmPackage compilerJVM/debian:packageBin compilerJVM/universal:packageBin
+
+          echo "KAITAI_STRUCT_VERSION=$KAITAI_STRUCT_VERSION"
+
+          sbt \
+            compile \
+            compilerJVM/stage \
+            fastOptJS \
+            buildNpmJsFile \
+            buildNpmPackage \
+            compilerJVM/debian:packageBin \
+            compilerJVM/universal:packageBin
       - uses: actions/upload-artifact@v3
         with:
           name: kaitai-struct-compiler
           path: |
-            jvm/target/universal/kaitai-struct-compiler-*.zip
-            jvm/target/kaitai-struct-compiler_*_all.deb
-            jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
-            js/target/scala-2.11/kaitai-struct-compiler-fastopt.js
+            compiler/jvm/target/universal/kaitai-struct-compiler-*.zip
+            compiler/jvm/target/kaitai-struct-compiler_*_all.deb
+            compiler/jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
+            compiler/js/target/scala-2.11/kaitai-struct-compiler-fastopt.js
+      - name: translator-tests
+        run: |
+          cd tests
+          ./translator-tests || true
+      - name: build-formats
+        run: |
+          cd tests
+          ./build-formats
