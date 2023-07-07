@@ -51,4 +51,4 @@
 	url = https://github.com/kaitai-io/kaitai_struct_nim_runtime
 [submodule "push_artifacts"]
 	path = push_artifacts
-	url = https://github.com/kaitai-io/push_artifacts.git
+	url = https://github.com/kaitai-io/push_artifacts
