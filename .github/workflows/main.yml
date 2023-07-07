@@ -34,15 +34,18 @@ jobs:
             buildNpmJsFile \
             buildNpmPackage \
             compilerJVM/debian:packageBin \
+            compilerJVM/rpm:packageBin \
             compilerJVM/universal:packageBin
-      - uses: actions/upload-artifact@v3
+      - name: publish to artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: kaitai-struct-compiler
           path: |
-            compiler/jvm/target/universal/kaitai-struct-compiler-*.zip
+            compiler/js/target/scala-*/kaitai-struct-compiler-fastopt.js
+            compiler/js/npm
             compiler/jvm/target/kaitai-struct-compiler_*_all.deb
             compiler/jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
-            compiler/js/target/scala-2.11/kaitai-struct-compiler-fastopt.js
+            compiler/jvm/target/universal/kaitai-struct-compiler-*.zip
       - name: translator-tests
         run: |
           cd tests
@@ -51,3 +54,17 @@ jobs:
         run: |
           cd tests
           ./build-formats
+      - name: publish formats
+        env:
+          BOT_SSH_KEY: ${{secrets.BOT_SSH_KEY}}
+        run: |
+          ./push_artifacts/git_config_kaitai_bot
+          ./push_artifacts/publish \
+            -o kaitai-io \
+            -r ci_targets \
+            -m "Regen ${GITHUB_REF#refs/heads/*} kaitai-io/kaitai_struct@$GITHUB_SHA"
+            -- \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=.travis.yml \
+            compiled
