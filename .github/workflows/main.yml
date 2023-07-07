@@ -71,4 +71,4 @@ jobs:
             --exclude=.git \
             --exclude=.github \
             --exclude=.travis.yml \
-            compiled
+            tests/compiled
