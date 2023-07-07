@@ -62,7 +62,7 @@ jobs:
           ./push_artifacts/publish \
             -o kaitai-io \
             -r ci_targets \
-            -m "Regen ${GITHUB_REF#refs/heads/*} kaitai-io/kaitai_struct@$GITHUB_SHA"
+            -m "Regen ${GITHUB_REF#refs/heads/*} kaitai-io/kaitai_struct@$GITHUB_SHA" \
             -- \
             --exclude=.git \
             --exclude=.github \
