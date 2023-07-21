@@ -75,9 +75,12 @@ jobs:
             tests/compiled
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
+      - name: archive formats for publishing
+        run: |
+          cd tests
+          zip -r -q targets.zip compiled
       - name: publish formats to artifacts
         uses: actions/upload-artifact@v3
         with:
           name: targets
-          path: |
-            tests/compiled
+          path: tests/targets.zip
