@@ -38,7 +38,7 @@ jobs:
 
 # TODO: add compilerJVM/rpm:packageBin
 
-      - name: publish to artifacts
+      - name: publish ksc to artifacts
         uses: actions/upload-artifact@v3
         with:
           name: kaitai-struct-compiler
@@ -58,7 +58,8 @@ jobs:
         run: |
           cd tests
           ./build-formats
-      - name: publish formats
+
+      - name: publish formats to ci_targets
         env:
           BOT_SSH_KEY: ${{secrets.BOT_SSH_KEY}}
         run: |
@@ -71,4 +72,12 @@ jobs:
             --exclude=.git \
             --exclude=.github \
             --exclude=.travis.yml \
+            tests/compiled
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+
+      - name: publish formats to artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: targets
+          path: |
             tests/compiled
