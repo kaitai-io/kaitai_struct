@@ -63,6 +63,7 @@ jobs:
         env:
           BOT_SSH_KEY: ${{secrets.BOT_SSH_KEY}}
         run: |
+          cd tests
           ./push_artifacts/git_config_kaitai_bot
           ./push_artifacts/publish \
             -o kaitai-io \
@@ -72,7 +73,7 @@ jobs:
             --exclude=.git \
             --exclude=.github \
             --exclude=.travis.yml \
-            tests/compiled
+            compiled
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
       - name: archive formats for publishing
