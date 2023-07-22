@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request: {}
+
+jobs:
+  ksc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: build-compiler
+        run: |
+          cd compiler
+          export GIT_COMMIT=$(git log -1 --format=%h)
+          export GIT_DATE_ISO=$(TZ=UTC git log -1 --date=iso-strict-local --format=%cd)
+          export GIT_DATE=$(TZ=UTC git log -1 --date=format-local:%Y%m%d.%H%M%S --format=%cd)
+          export KAITAI_STRUCT_VERSION=0.11-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
+
+          echo "KAITAI_STRUCT_VERSION=$KAITAI_STRUCT_VERSION"
+
+          cat /dev/null | sbt \
+            compile \
+            compilerJVM/stage \
+            fastOptJS \
+            buildNpmJsFile \
+            buildNpmPackage \
+            compilerJVM/debian:packageBin \
+            compilerJVM/universal:packageBin
+
+# TODO: add compilerJVM/rpm:packageBin
+
+      - name: publish ksc to artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: kaitai-struct-compiler
+          path: |
+            compiler/js/target/scala-*/kaitai-struct-compiler-fastopt.js
+            compiler/js/npm
+            compiler/jvm/target/kaitai-struct-compiler_*_all.deb
+            compiler/jvm/target/universal/kaitai-struct-compiler-*.zip
+
+# TODO: add compiler/jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
+
+      - name: translator-tests
+        run: |
+          cd tests
+          ./translator-tests || true
+      - name: build-formats
+        run: |
+          cd tests
+          ./build-formats
+
+      - name: publish formats to ci_targets
+        env:
+          BOT_SSH_KEY: ${{secrets.BOT_SSH_KEY}}
+        run: |
+          cd tests
+          ./push_artifacts/git_config_kaitai_bot
+          ./push_artifacts/publish \
+            -o kaitai-io \
+            -r ci_targets \
+            -m "Regen ${GITHUB_REF#refs/heads/*} kaitai-io/kaitai_struct@$GITHUB_SHA" \
+            -- \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=.travis.yml \
+            compiled
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+
+      - name: archive formats for publishing
+        run: |
+          cd tests
+          zip -r -q targets.zip compiled
+      - name: publish formats to artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: targets
+          path: tests/targets.zip
