@@ -27,7 +27,7 @@ jobs:
 
           echo "KAITAI_STRUCT_VERSION=$KAITAI_STRUCT_VERSION"
 
-          sbt \
+          cat /dev/null | sbt \
             compile \
             compilerJVM/stage \
             fastOptJS \
