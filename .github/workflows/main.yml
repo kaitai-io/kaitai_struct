@@ -38,11 +38,11 @@ jobs:
 
 # TODO: add compilerJVM/rpm:packageBin
 
-      - name: publish compiler to npm
-        working-directory: compiler/js/npm
-        run: npm publish --tag next
+      - name: publish JS compiler to npm
+        working-directory: compiler
+        run: ./publish_js_to_npm.sh
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_API_KEY: ${{ secrets.NPM_TOKEN }}
 
       - name: publish ksc to artifacts
         uses: actions/upload-artifact@v3
