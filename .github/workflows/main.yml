@@ -45,7 +45,7 @@ jobs:
           NPM_API_KEY: ${{ secrets.NPM_TOKEN }}
 
       - name: publish ksc to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: kaitai-struct-compiler
           path: |
@@ -87,7 +87,7 @@ jobs:
           cd tests
           zip -r -q targets.zip compiled
       - name: publish formats to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: targets
           path: tests/targets.zip
