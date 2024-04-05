@@ -49,3 +49,9 @@
 [submodule "runtime/nim"]
 	path = runtime/nim
 	url = https://github.com/kaitai-io/kaitai_struct_nim_runtime
+[submodule "runtime/rust"]
+	path = runtime/rust
+	url = https://github.com/kaitai-io/kaitai_struct_rust_runtime
+[submodule "viewer"]
+	path = viewer
+	url = https://github.com/kaitai-io/kaitai_struct_gui
