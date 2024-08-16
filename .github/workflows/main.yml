@@ -45,12 +45,9 @@ jobs:
           NPM_API_KEY: ${{ secrets.NPM_TOKEN }}
 
       - name: trigger rebuild of ide.kaitai.io/devel
-        uses: octokit/request-action@v2.3.1
+        run: ./trigger-kaitai_struct_webide
         env:
           GITHUB_TOKEN: ${{ secrets.KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN }}
-        with:
-          route: POST /repos/kaitai-io/kaitai_struct_webide/dispatches
-          event_type: rebuild-webide # this value is required but unused
 
       - name: publish ksc to artifacts
         uses: actions/upload-artifact@v4
