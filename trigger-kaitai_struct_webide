@@ -20,4 +20,5 @@ if [ -n "$KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN" ]; then
 		"https://api.github.com/repos/$PROJECT/dispatches"
 else
 	echo "No KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN found!"
+	exit 1
 fi

@@ -47,7 +47,7 @@ jobs:
       - name: trigger rebuild of ide.kaitai.io/devel
         run: ./trigger-kaitai_struct_webide
         env:
-          GITHUB_TOKEN: ${{ secrets.KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN }}
+          KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN: ${{ secrets.KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN }}
 
       - name: publish ksc to artifacts
         uses: actions/upload-artifact@v4
