@@ -45,7 +45,8 @@ jobs:
           NPM_API_KEY: ${{ secrets.NPM_TOKEN }}
 
       - name: trigger rebuild of ide.kaitai.io/devel
-        run: ./trigger-kaitai_struct_webide
+        run: |
+          ./trigger-kaitai_struct_webide "$(jq -r .version compiler/js/npm/package.json)"
         env:
           KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN: ${{ secrets.KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN }}
 
