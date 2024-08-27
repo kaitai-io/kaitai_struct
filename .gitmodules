@@ -49,3 +49,6 @@
 [submodule "runtime/nim"]
 	path = runtime/nim
 	url = https://github.com/kaitai-io/kaitai_struct_nim_runtime
+[submodule "ksy_schema"]
+	path = ksy_schema
+	url = https://github.com/kaitai-io/ksy_schema.git
