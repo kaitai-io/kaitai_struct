@@ -8,6 +8,7 @@ on:
 
 jobs:
   ksc:
+    environment: unstable
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -61,6 +62,17 @@ jobs:
             compiler/jvm/target/universal/kaitai-struct-compiler-*.zip
 
 # TODO: add compiler/jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
+
+      - name: publish deb to repo
+        uses: kaitai-io/repo-apt-handle@v0.1
+        with:
+          az_storage_sas_token: ${{ secrets.AZURE_STORAGE_SAS_TOKEN }}
+          az_storage_account: packageskaitai
+          az_storage_container: unstable
+          packages: compiler/jvm/target/kaitai-struct-compiler_*_all.deb
+          gpg_priv_key: ${{ secrets.GPG_PRIV_KEY }}
+          gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
       - name: translator-tests
         run: |
