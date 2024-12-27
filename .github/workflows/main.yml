@@ -18,6 +18,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+      - uses: sbt/setup-sbt@v1
       - name: build-compiler
         run: |
           cd compiler
