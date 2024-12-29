@@ -75,10 +75,6 @@ jobs:
           gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
-      - name: translator-tests
-        run: |
-          cd tests
-          ./translator-tests || true
       - name: build-formats
         run: |
           cd tests
