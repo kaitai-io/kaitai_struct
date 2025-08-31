@@ -74,6 +74,7 @@ jobs:
           gpg_priv_key: ${{ secrets.GPG_PRIV_KEY }}
           gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        continue-on-error: true
 
       - name: build-formats
         run: |
