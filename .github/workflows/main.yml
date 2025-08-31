@@ -45,6 +45,7 @@ jobs:
         run: ./publish_js_to_npm.sh
         env:
           NPM_API_KEY: ${{ secrets.NPM_TOKEN }}
+        continue-on-error: true
 
       - name: trigger rebuild of ide.kaitai.io/devel
         run: |
