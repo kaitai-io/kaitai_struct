@@ -52,3 +52,6 @@
 [submodule "runtime/rust"]
 	path = runtime/rust
 	url = https://github.com/kaitai-io/kaitai_struct_rust_runtime
+[submodule "runtime/zig"]
+	path = runtime/zig
+	url = https://github.com/kaitai-io/kaitai_struct_zig_runtime.git
