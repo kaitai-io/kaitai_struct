@@ -25,7 +25,7 @@ jobs:
           export GIT_COMMIT=$(git log -1 --format=%h)
           export GIT_DATE_ISO=$(TZ=UTC git log -1 --date=iso-strict-local --format=%cd)
           export GIT_DATE=$(TZ=UTC git log -1 --date=format-local:%Y%m%d.%H%M%S --format=%cd)
-          export KAITAI_STRUCT_VERSION=0.11-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
+          export KAITAI_STRUCT_VERSION=0.12-SNAPSHOT${GIT_DATE}.${GIT_COMMIT}
 
           echo "KAITAI_STRUCT_VERSION=$KAITAI_STRUCT_VERSION"
 
