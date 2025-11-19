@@ -38,7 +38,7 @@ jobs:
             compilerJVM/debian:packageBin \
             compilerJVM/universal:packageBin
 
-# TODO: add compilerJVM/rpm:packageBin
+      # TODO: add compilerJVM/rpm:packageBin
 
       - name: publish JS compiler to npm
         working-directory: compiler
@@ -63,7 +63,7 @@ jobs:
             compiler/jvm/target/kaitai-struct-compiler_*_all.deb
             compiler/jvm/target/universal/kaitai-struct-compiler-*.zip
 
-# TODO: add compiler/jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
+      # TODO: add compiler/jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
 
       - name: publish deb to repo
         uses: kaitai-io/repo-apt-handle@v0.1
@@ -98,13 +98,3 @@ jobs:
             --exclude=.travis.yml \
             compiled
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-
-      - name: archive formats for publishing
-        run: |
-          cd tests
-          zip -r -q targets.zip compiled
-      - name: publish formats to artifacts
-        uses: actions/upload-artifact@v5
-        with:
-          name: targets
-          path: tests/targets.zip
