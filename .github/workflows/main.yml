@@ -6,13 +6,18 @@ on:
       - master
   pull_request: {}
 
+permissions: {}
+
 jobs:
   ksc:
     environment: unstable
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v5
         with:
+          persist-credentials: false
           submodules: recursive
       - uses: actions/setup-java@v5
         with:
