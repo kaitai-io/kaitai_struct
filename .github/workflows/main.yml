@@ -45,7 +45,8 @@ jobs:
 
       # TODO: add compilerJVM/rpm:packageBin
 
-      - name: publish JS compiler to npm
+      - id: publish-ksc-to-npm
+        name: publish JS compiler to npm
         working-directory: compiler
         run: ./publish_js_to_npm.sh
         env:
@@ -57,6 +58,7 @@ jobs:
           ./trigger-kaitai_struct_webide "$(jq -r .version compiler/js/npm/package.json)"
         env:
           KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN: ${{ secrets.KAITAI_STRUCT_WEBIDE_GITHUB_TOKEN }}
+        if: ${{ success() && steps.publish-ksc-to-npm.outcome == 'success' }}
 
       - name: publish ksc to artifacts
         uses: actions/upload-artifact@v5
