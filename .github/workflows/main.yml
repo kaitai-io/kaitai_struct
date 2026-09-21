@@ -28,7 +28,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '25'
-      - uses: sbt/setup-sbt@508b753e53cb6095967669e0911487d2b9bc9f41 # v1.1.22
+      - uses: sbt/setup-sbt@82da71df4e122282484a99a8d70096bc2369dbd8 # v1.5.9
       - name: build-compiler
         run: |
           cd compiler
