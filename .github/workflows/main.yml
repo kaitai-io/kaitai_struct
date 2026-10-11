@@ -15,7 +15,6 @@ permissions: {}
 
 jobs:
   ksc:
-    environment: unstable
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -57,6 +56,39 @@ jobs:
 
       # TODO: add compiler/jvm/target/rpm/RPMS/noarch/kaitai-struct-compiler-*.noarch.rpm
 
+      - name: build-formats
+        run: |
+          cd tests
+          ./build-formats
+
+      - name: publish formats to artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: kaitai-struct-formats
+          path: tests/compiled
+
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: ksc
+    environment: unstable
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          submodules: recursive
+      - name: download ksc from artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: kaitai-struct-compiler
+          path: compiler
+      - name: download formats from artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: kaitai-struct-formats
+          path: tests/compiled
       - name: publish deb to repo
         uses: kaitai-io/repo-apt-handle@v0.1 # zizmor: ignore[unpinned-uses]
         with:
@@ -66,14 +98,7 @@ jobs:
           packages: compiler/jvm/target/kaitai-struct-compiler_*_all.deb
           gpg_priv_key: ${{ secrets.GPG_PRIV_KEY }}
           gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         continue-on-error: true
-
-      - name: build-formats
-        run: |
-          cd tests
-          ./build-formats
-
       - name: publish formats to ci_targets
         env:
           BOT_SSH_KEY: ${{secrets.BOT_SSH_KEY}}
@@ -89,4 +114,3 @@ jobs:
             --exclude=.github \
             --exclude=.travis.yml \
             compiled
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
