@@ -60,26 +60,25 @@ maintain exactly this order of declarations and group headers.
 ## Unaligned bit values
 
 * `align_to_byte()`
-* `read_bits_int(n)`
-* `read_bits_array(n)`
+* `read_bits_int_be(n)`
+* `read_bits_int_le(n)`
 
 ## Byte arrays
 
 * `read_bytes(n)`
 * `read_bytes_full`
-* `read_bytes_term(String encoding, int term, boolean include_term, boolean consumeTerm, boolean eosError)`
-* `ensure_fixed_contents(expected)`
+* `read_bytes_term(int term, boolean include_term, boolean consume_term, boolean eos_error)`
 * static `bytes_strip_right(bytes, pad_byte)`
 * static `bytes_terminate(bytes, term, include_term)`
 * static `bytes_to_str(bytes, encoding)`
 
 ## Byte array processing
 
-* `process_xor(data, key)`
-  * `process_xor_one(data, key)`
-  * `process_xor_many(data, key)`
-* `process_rotate_left(data, amount, group_size)`
-* `process_zlib(data)`
+* static `process_xor(data, key)`
+  * static `process_xor_one(data, key)`
+  * static `process_xor_many(data, key)`
+* static `process_rotate_left(data, amount, group_size)`
+* static `process_zlib(data)`
 
 ## Misc runtime operations
 
